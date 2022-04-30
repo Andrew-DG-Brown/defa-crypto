@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="208" height="233" viewBox="0 0 208 233">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Favicon);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        font-size: 210px;
+        font-family: SegoeUI-Bold, Segoe UI;
+        font-weight: 700;
+      }
+
+      .cls-5 {
+        filter: url(#D);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1.023" y1="1.057" x2="-0.237" y2="-0.266" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1c71f1"/>
+      <stop offset="1" stop-color="#5297ff"/>
+    </linearGradient>
+    <filter id="D" x="3" y="-64" width="215" height="340" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.251"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Favicon">
+      <rect width="208" height="233"/>
+    </clipPath>
+  </defs>
+  <g id="Favicon" class="cls-1">
+    <g id="D-2" data-name="D" transform="translate(-113 -10)">
+      <rect id="Rectangle_10" data-name="Rectangle 10" class="cls-2" width="207" height="231" rx="35" transform="translate(113 11)"/>
+      <g class="cls-5" transform="matrix(1, 0, 0, 1, 113, 10)">
+        <text id="D-3" data-name="D" class="cls-3" transform="translate(28 188)"><tspan x="0" y="0">D</tspan></text>
+      </g>
+    </g>
+    <path id="Path_1" data-name="Path 1" class="cls-4" d="M-772.267,2891.067l-27.333,16.667,27.333-32.667Z" transform="translate(819 -2716)"/>
+    <path id="Path_2" data-name="Path 2" class="cls-4" d="M-772.267,2891.067l-27.333,16.667,27.333-32.667Z" transform="translate(-612.533 2958.4) rotate(180)"/>
+  </g>
+</svg>
