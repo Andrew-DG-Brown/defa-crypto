@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- stylesheet -->
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/input.css" />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Crypto</title>
+  </head>
+  <body>
+    <main class="relative overflow-hidden bg-veryLightBlue" id="header-hero">
+      <!-- Navbar -->
+      <nav class="relative container mx-auto mt-2 p-6 pt-8">
+        <!-- flex container -->
+        <div class="flex items-center justify-between">
+          <img
+            src="/images/top-logo-svg.svg"
+            class="h-12 z-10"
+            alt="DEFA main logo"
+          />
+          <!-- 'Coins' button top nav -->
+          <button
+            class="bg-gradient-to-br from-fadedBlue to-darkBlue text-white text-lg font-normal px-7 py-3 rounded-full hover:stroke-lime-400"
+            id="coins-but"
+          >
+            Top Coins
+          </button>
+        </div>
+      </nav>
+      <!-- background blurs -->
+
+      <!-- Purple top left -->
+      <div
+        class="absolute -left-[65%] -top-[22rem] w-full h-full rounded-full bg-mainPurple filter blur-[96px] opacity-[0.15]"
+        id="purp-left"
+      ></div>
+      <!-- Blue bottom right -->
+      <div
+        class="absolute left-[70%] top-72 w-full h-full rounded-full bg-darkBlue filter blur-[96px] opacity-20"
+        id="blue-right"
+      ></div>
+      <!-- hero -->
+      <section
+        class="flex justify-center items-center h-96 my-10 mb-32"
+        id="hero"
+      >
+        <div
+          class="flex justify-between flex-col h-40 md:h-52 items-center"
+          id="main-heading"
+        >
+          <!-- main text -->
+          <h1
+            class="text-4xl md:text-6xl text-fadedBlack text-center leading-tight font-black z-10"
+          >
+            Today's Cryptocurrency <br />
+            Prices by
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-b from-fadedBlue to-darkBlue"
+              >DEFA</span
+            >
+          </h1>
+          <p class="text-mainGray font-normal text-xl" id="head-p">
+            The only place for accurate crypto prices
+          </p>
+        </div>
+      </section>
+    </main>
+    <!-- top cryptos board -->
+    <section
+      class="relative mb-64 lg:m-0 bg-white h-40 flex justify-center"
+      id="top-crypto-board"
+    >
+      <!-- container for cryptos -->
+      <div
+        class="flex flex-col lg:flex-row items-center justify-around absolute rounded-[2.2rem] -top-32 w-[70%] md:w-[70%] xl:w-[70%] p-3 lg:p-5 xl:p-8"
+        id="top-crypto-bar"
+      >
+        <!-- btc -->
+        <div
+          class="flex flex-col justify-between bg-white items-center m-5 w-96 h-[12.7rem] py-9 shadow-lg rounded-3xl"
+        >
+          <!-- top -->
+          <section class="flex justify-center items-end">
+            <img
+              src="	https://s2.coinmarketcap.com/static/img/coins/64x64/1.png"
+              class="w-10 mr-3"
+              alt=""
+            />
+            <h3 class="text-4xl text-fadedBlack font-bold mr-3">Bitcoin</h3>
+            <h4 class="text-2xl text-mainGray">BTC</h4>
+          </section>
+          <!-- middle -->
+          <section class="flex text-2xl md:text-4xl text-fadedBlack font-black">
+            <h2><span>$</span> <span id="btc-top-price"> 39,277.13</span></h2>
+          </section>
+          <!-- bottom -->
+          <section
+            class="flex justify-between items-center text-lg text-mainGray"
+          >
+            <p class="pr-5">24h</p>
+            <div
+              class="bg-fadedGreen text-brightGreen text-base border-2 border-brightGreen rounded-full px-2"
+              id="btc-top-perc"
+            >
+              15.20%
+            </div>
+          </section>
+        </div>
+        <!-- eth -->
+        <div
+          class="flex flex-col justify-between bg-white items-center m-5 w-96 h-[12.7rem] py-9 shadow-lg rounded-3xl"
+        >
+          <!-- top -->
+          <section class="flex justify-center items-end">
+            <img
+              src="https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png"
+              class="w-10 mr-2"
+              alt=""
+            />
+            <h3 class="text-4xl text-fadedBlack font-bold mr-2">Ethereum</h3>
+            <h4 class="text-2xl text-mainGray">ETH</h4>
+          </section>
+          <!-- middle -->
+          <section class="flex text-2xl md:text-4xl text-fadedBlack font-black">
+            <h2><span>$</span> <span id="eth-top-price">2,883.27</span></h2>
+          </section>
+          <!-- bottom -->
+          <section
+            class="flex justify-between items-center text-lg text-mainGray"
+          >
+            <p class="pr-5">24h</p>
+
+            <div
+              class="bg-fadedGreen text-brightGreen text-base border-2 border-brightGreen rounded-full px-2"
+              id="eth-top-perc"
+            >
+              20.74%
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- main crypto board -->
+    <section class="flex justify-center" id="crypto-board">
+      <!-- crypto list container  -->
+      <div
+        class="container flex flex-col w-full md:w-[80%] h-screen"
+        id="crypto-list-cont"
+      >
+        <!-- search bar  -->
+        <div class="hidden" id="search-cont">
+          <input type="text" class="bg-slate-200" id="crypto-search" />
+        </div>
+        <!-- list headings  -->
+        <div
+          class="flex justify-between font-semibold items-center py-5 px-7 border-b-[1px] border-slate-200"
+          id="list-heading"
+        >
+          <p class="w-full">Token Name</p>
+          <p class="w-full">Price</p>
+          <p class="w-[30%]">24h %</p>
+          <p class="w-full text-right hidden md:block">Market Cap</p>
+        </div>
+        <!-- single crypto  -->
+        <div
+          class="flex justify-between font-semibold items-center py-5 px-7 border-b-[1px] border-slate-200"
+          id="crypto-list-item"
+        >
+          <!-- coin symbol and name  -->
+          <div class="flex items-center">
+            <!-- symbol  -->
+            <img
+              src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
+              alt="bitcoin symbol"
+              class="w-7"
+            />
+            <!-- name -->
+            <p class="ml-2">Bitcoin</p>
+          </div>
+          <!-- price  -->
+          <p>$<span class="ml-1">43180</span></p>
+          <!-- perc change  -->
+          <div
+            class="bg-fadedGreen text-brightGreen text-base border-2 border-brightGreen rounded-full px-2"
+            id="perc-24"
+          >
+            15.76%
+          </div>
+          <!-- market cap  -->
+          <p class="hidden md:block" id="cap">
+            $<span class="ml-1">771,605,485,409.71</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script src="/src/app.js"></script>
+    <script src="/src/percentage.js"></script>
+  </body>
+</html>

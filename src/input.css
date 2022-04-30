@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Lato, sans-serif;
+  }
+}
+
+/* Animations */
+
+@keyframes trans-up {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 100%;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes trans-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes trans-left {
+  0% {
+    transform: translateX(50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+/* Selectors */
+
+/* ----- h1 -------- */
+
+h1 {
+  animation: trans-up 1200ms ease-in-out;
+}
+
+/* ----- nav -------- */
+
+nav {
+  animation: fade-in 400ms ease-in-out;
+}
+
+/* ----- purp blob left -------- */
+
+#purp-left {
+  animation: trans-right 1600ms ease-in-out;
+}
+
+/* ----- blue blob right -------- */
+
+#blue-right {
+  animation: trans-left 1600ms ease-in-out;
+}
+
+/* ----- head p -------- */
+
+#head-p {
+  animation: fade-in 1900ms ease-out;
+  /* animation-delay: 800ms; */
+}
+
+/* ------ Top crytos bar ------*/
+
+#top-crypto-bar {
+  animation: fade-in 400ms ease-out;
+}
+
+/* ------ main crytos board ------*/
+
+#crypto-board {
+  animation: fade-in 1400ms ease-out;
+  animation-delay: 800ms;
+}
