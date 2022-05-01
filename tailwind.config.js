@@ -1,6 +1,10 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
+    screens: {
+      xs: '380',
+      sm: '480'
+    },
     extend: {
       colors: {
         fadedBlack: '#222222',

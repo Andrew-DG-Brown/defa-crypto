@@ -93,6 +93,6 @@ nav {
 /* ------ main crytos board ------*/
 
 #crypto-board {
-  animation: fade-in 1400ms ease-out;
-  animation-delay: 800ms;
+  animation: fade-in 1600ms ease-out;
+  
 }
