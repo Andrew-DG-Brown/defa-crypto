@@ -66,7 +66,8 @@ function showCoins(data) {
   data.forEach(coin => {
     const coinElement = document.createElement('div');
     coinElement.className = 'flex justify-between font-semibold items-center py-5 px-7 border-b-[1px] border-slate-200'
-    // coinElement.id = 'perc-24';
+
+    const chartApi = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=365`
     
     
     if(coin.price_change_percentage_24h < 0) {
