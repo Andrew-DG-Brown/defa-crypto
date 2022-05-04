@@ -188,28 +188,36 @@ function showCoins(data) {
     // console.log(canvas)
 
     const myChart = new Chart(canvas, {
-            type: "line",
-            data: {
-              labels: datesX,
-              datasets: [
-                {
-                  label: "price",
-                  data: pricesY,
-                  borderColor: [
-                    "#5297FF"
-                  ],
-                  tension: 0.4
-                },
-              ],
+        type: "line",
+        data: {
+          labels: datesX,
+          datasets: [
+            {
+              label: "Price",
+              data: pricesY,
+              borderColor: "#5297FF",
+              tension: 0.4,
+              pointRadius: 0,
+              backgroundColor: "rgba(82, 151, 255, 0.3)",
+              fill: true,
             },
-            options: {
-              scales: {
-                y: {
-                  beginAtZero: true,
-                },
-              },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
             },
-          });
+          },
+          plugins: {
+            legend: {
+              labels: {
+                usePointStyle: true
+              }
+            },
+          }
+        },
+      });
     
 
      
