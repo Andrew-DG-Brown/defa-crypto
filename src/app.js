@@ -145,10 +145,12 @@ function showCoins(data) {
     //Chart data
     const chartApiUrl = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=364&interval=daily`
 
+    getChartData()
+
     const pricesY = [];
     const datesX = [];
 
-      function getChartData() {
+    function getChartData() {
 
       fetch(chartApiUrl).then(res => res.json()).then(data => {
         let prices = data.prices
@@ -161,16 +163,17 @@ function showCoins(data) {
           let shortDate = date.toString()
           datesX.push(shortDate.slice(0, 16))
         });
+
+        chartIt()
       })
     }
-
+    
 
 
     // Chart
-    chartIt()
+    
 
-    async function chartIt() {
-      await getChartData()
+    function chartIt() {
 
     const canvas = document.createElement('canvas');
     canvas.id = `chart-${coin.id}`
@@ -211,17 +214,13 @@ function showCoins(data) {
         canvas.style.display = 'block';
        }
      })  
+
+     
     }
     
     
-    
-        // chartButton.addEventListener('click', () => {
-        //   console.log(coin.id)
-        // })
      
   })
-  
-  
   
   
 
