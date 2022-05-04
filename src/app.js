@@ -151,21 +151,27 @@ function showCoins(data) {
     const datesX = [];
 
     function getChartData() {
+      // const chartButton = document.querySelector(`#chart-but-${coin.id}`)
+      coinElement.addEventListener('click', () => {
 
-      fetch(chartApiUrl).then(res => res.json()).then(data => {
-        let prices = data.prices
-
-        prices.forEach(p => {
-          let dailyPrice = p[1]
-          pricesY.push(dailyPrice)
-
-          let date = new Date(p[0])
-          let shortDate = date.toString()
-          datesX.push(shortDate.slice(0, 16))
-        });
-
-        chartIt()
-      })
+        fetch(chartApiUrl).then(res => res.json()).then(data => {
+          let prices = data.prices
+  
+          prices.forEach(p => {
+            let dailyPrice = p[1]
+            pricesY.push(dailyPrice)
+  
+            let date = new Date(p[0])
+            let shortDate = date.toString()
+            datesX.push(shortDate.slice(3, 16))
+          });
+  
+          chartIt()
+          
+        })
+      }, {once : true}) 
+ 
+      
     }
     
 
@@ -177,7 +183,7 @@ function showCoins(data) {
 
     const canvas = document.createElement('canvas');
     canvas.id = `chart-${coin.id}`
-    canvas.style.display = 'none'
+    canvas.style.display = 'block'
     coinElement.insertAdjacentElement('afterend', canvas)
     // console.log(canvas)
 
@@ -205,15 +211,6 @@ function showCoins(data) {
             },
           });
     
-     const chartButton = document.querySelector(`#chart-but-${coin.id}`)
-     chartButton.addEventListener('click', () => {
-       
-       if(canvas.style.display === 'block') {
-        canvas.style.display = 'none'
-       } else {
-        canvas.style.display = 'block';
-       }
-     })  
 
      
     }
