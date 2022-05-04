@@ -66,10 +66,8 @@ function showCoins(data) {
   data.forEach(coin => {
     const coinElement = document.createElement('div');
     coinElement.className = 'flex justify-between font-semibold items-center py-5 px-7 border-b-[1px] border-slate-200'
-
-    const chartApi = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=365`
     
-    
+    //innerHTML for crypto info
     if(coin.price_change_percentage_24h < 0) {
       coinElement.innerHTML = `
       <!-- coin symbol and name  -->
@@ -94,10 +92,14 @@ function showCoins(data) {
           ${coin.price_change_percentage_24h.toFixed(2)}%
           </div>
         </div>
-      <!-- market cap  -->
-      <p class="md:flex md:justify-end hidden w-full">
-        $<span class="ml-1">${coin.market_cap}</span>
-      </p>
+      <div class="md:flex md:justify-end hidden w-full">
+      <button
+            class="bg-gradient-to-br from-fadedBlue to-darkBlue text-white text-lg font-normal px-7 py-3 rounded-full"
+            id="chart-but-${coin.id}"
+          >
+            Chart
+      </button>
+      </div>
     </div>
     `
     } else {
@@ -124,17 +126,109 @@ function showCoins(data) {
           ${coin.price_change_percentage_24h.toFixed(2)}%
           </div>
         </div>
-      <!-- market cap  -->
-      <p class="md:flex md:justify-end hidden w-full">
-        $<span class="ml-1">${coin.market_cap}</span>
-      </p>
+      
+        <div class="md:flex md:justify-end hidden w-full">
+        <button
+              class="bg-gradient-to-br from-fadedBlue to-darkBlue text-white text-lg font-normal px-7 py-3 rounded-full"
+              id="chart-but-${coin.id}"
+            >
+              Chart
+        </button>
+        </div>
     </div>
+  
     `
     }
 
     cryptoListCont.appendChild(coinElement)
+
+    //Chart data
+    const chartApiUrl = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=364&interval=daily`
+
+    const pricesY = [];
+    const datesX = [];
+
+      function getChartData() {
+
+      fetch(chartApiUrl).then(res => res.json()).then(data => {
+        let prices = data.prices
+
+        prices.forEach(p => {
+          let dailyPrice = p[1]
+          pricesY.push(dailyPrice)
+
+          let date = new Date(p[0])
+          let shortDate = date.toString()
+          datesX.push(shortDate.slice(0, 16))
+        });
+      })
+    }
+
+
+
+    // Chart
+    chartIt()
+
+    async function chartIt() {
+      await getChartData()
+
+    const canvas = document.createElement('canvas');
+    canvas.id = `chart-${coin.id}`
+    canvas.style.display = 'none'
+    coinElement.insertAdjacentElement('afterend', canvas)
+    // console.log(canvas)
+
+    const myChart = new Chart(canvas, {
+            type: "line",
+            data: {
+              labels: datesX,
+              datasets: [
+                {
+                  label: "price",
+                  data: pricesY,
+                  borderColor: [
+                    "#5297FF"
+                  ],
+                  tension: 0.4
+                },
+              ],
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+              },
+            },
+          });
+    
+     const chartButton = document.querySelector(`#chart-but-${coin.id}`)
+     chartButton.addEventListener('click', () => {
+       
+       if(canvas.style.display === 'block') {
+        canvas.style.display = 'none'
+       } else {
+        canvas.style.display = 'block';
+       }
+     })  
+    }
+    
+    
+    
+        // chartButton.addEventListener('click', () => {
+        //   console.log(coin.id)
+        // })
+     
   })
+  
+  
+  
+  
+
 }
+
+
+
 
 //search function
 // search.addEventListener('keyup', () => {
